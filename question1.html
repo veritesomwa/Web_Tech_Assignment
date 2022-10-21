@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+</head>
+<body>
+
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        th{
+            text-align: left;
+        }
+        
+    </style>
+
+    <table id="myTable">
+        <th colspan="2">
+            Cars in my Garage
+        </th>
+    </table>
+
+    <script>
+        let cars = ["BMW M4", "Nissan Versa", "Honda Civic", "Hyundai Elantra Hybrid", "Nissan Magnile", "Hyundai Alcazar"];
+
+        let table = document.getElementById("myTable");
+
+        let count = 0;
+
+        for(car of cars){
+            let row = table.insertRow(count + 1);
+            let col1 = row.insertCell(0);
+            let col2 = row.insertCell(1);
+
+            col1.innerHTML = "<b>myArray["+count.toString()+"]</b>";
+            col2.innerHTML = car;
+            count++;
+        }
+        
+
+        cars.pop()
+        for(car of cars){
+            console.log(car)
+        }
+
+        cars.unshift("Mercedes Benz S-Class[0]")
+        console.log(cars)
+
+
+    </script>
+</body>
+</html>

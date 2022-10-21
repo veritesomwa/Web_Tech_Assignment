@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+</head>
+<body>
+
+    <style>
+        #myForm{
+            width: 500px;
+            height: 300px;
+            background-color: goldenrod;
+        }
+    </style>
+
+    <form id="myForm" action="" method="POST">
+
+        <div class="data_group">
+            <label for="date">When was this website updated: </label>
+            <input type="date" placeholder="yyyy-mm-dd" name="date" id="date">
+        </div>
+        <input type="submit" value="Send Update Date">
+
+    </form>
+
+    <script>
+        // 2.1
+        let myForm = document.getElementById("myForm");
+        
+        
+        myForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let d = document.getElementById("date").value;
+            dateUpdate(d);
+
+        });
+        
+
+        function dateUpdate(date){
+            let newDate = new Date(date)
+            var yyyy = newDate.getFullYear().toString();
+            
+            function OGMonth(DateMonthIndex){
+                
+                arr = ['Jan', 'Feb','Mar','Apr', 'May','June','Jul','Aug','Sep','Oct','Nov','Dec']
+                return arr[DateMonthIndex]
+            }
+
+            var mm = OGMonth(parseInt(newDate.getMonth()));
+            var dd  = newDate.getDate().toString();
+            var ddChars = dd.split('');
+
+            var updatedDate = yyyy.substr(2, yyyy.length) + '/' + mm + '/' + (ddChars[1]?dd:"0"+ddChars[0]);
+            alert(`This page was last updated: ${updatedDate}`);
+        }
+
+        // 2.2
+        myString = "i love javascript programming with all my heart";
+        newString = "";
+
+        for(c of myString){
+            newString += c.toUpperCase()
+        }
+
+        document.write(newString);
+
+
+    </script>
+</body>
+</html>
